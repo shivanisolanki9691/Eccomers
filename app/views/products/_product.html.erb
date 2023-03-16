@@ -1,0 +1,26 @@
+<div class= "col-lg-10 mx-auto">
+  <h1 class="text-center"> </h1>
+  <div id="<%= dom_id product %>">
+    <p>
+      <strong>Name:</strong>
+      <%= product.name %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= product.description %>
+    </p>
+
+    <p>
+      <strong></strong>
+      <% if product.image.attached? %>
+      <%= image_tag product.image , :width => 300 ,:height => 300 %>
+      <% end %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= product.price %>
+    </p>
+  </div>
+</div>

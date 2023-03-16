@@ -1,0 +1,21 @@
+<<!-- div class= "col-lg-10 mx-auto">
+  <h1 class="text-center"> </h1> -->
+<p style="color: green"><%= notice %></p>
+<div class="col-md-12">
+  <div class="card shadow">
+    <div class="card-body">
+
+      <%= render @product %>
+    </div>
+    
+  </div>
+</div>
+
+
+
+  <%= link_to "Edit this product", edit_product_path(@product) %> |
+  <%= link_to "Back to products", products_path %>
+
+  <%= button_to "Destroy this product", @product, method: :delete %>
+</div>
+
