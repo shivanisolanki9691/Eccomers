@@ -50,12 +50,35 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_071349) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "students", force: :cascade do |t|
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.string "personal_email"
+    t.string "state"
+    t.string "country"
+    t.string "pincode"
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name"
+    t.string "sub_type"
+    t.bigint "student_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_subjects_on_student_id"
+  end
+
   create_table "todos", force: :cascade do |t|
     t.string "name"
     t.string "day"
-    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
     t.string "user"
   end
 
@@ -70,4 +93,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_071349) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "subjects", "students"
 end
